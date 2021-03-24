@@ -25,8 +25,8 @@ class TurmaRequest extends FormRequest
     {
         return [
             'nome'=>['required','string','max:254'],
-            'user_id'=>['required','exists:users,id'],
-            'disciplina_id'=>['required','exists:disciplinas,id'],
+            'user_id'=>['nullable','exists:users,id'],
+            'disciplina_id'=>['nullable','exists:disciplinas,id'],
         ];
     }
 }

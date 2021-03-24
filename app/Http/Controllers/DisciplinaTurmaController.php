@@ -61,7 +61,7 @@ class DisciplinaTurmaController extends Controller
         try {
             $dataform = $request->validated();
             $turma->update($dataform);
-            return response($turma);
+            return response($turma,201);
         }catch (\Exception $e){
             return response($e->getMessage(),400);
         }

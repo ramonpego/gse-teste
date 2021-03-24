@@ -24,7 +24,9 @@ class ProfessorStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'=>['required','string','max:254'],
+            'password'=>['required','confirmed','string','min:6'],
+            'email'=>['required','unique:users','email:rfc,dns','max:254']
         ];
     }
 }

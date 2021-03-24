@@ -25,7 +25,7 @@ class AlunoStoreRequest extends FormRequest
     {
         return [
             'nome'=>['required','string','max:254'],
-            'email'=>['required','unique','string','max:254'],
+            'email'=>['required','unique:alunos','string','max:254'],
             'data_nascimento'=>['required','date','before:today'],
         ];
     }

@@ -16,7 +16,7 @@ class ProfessorTurmaController extends Controller
      */
     public function index(User $user)
     {
-        return response($user->turmas());
+        return response($user->turmas);
     }
 
     /**

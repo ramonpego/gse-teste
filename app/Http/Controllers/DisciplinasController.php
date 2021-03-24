@@ -28,8 +28,8 @@ class DisciplinasController extends Controller
     {
         try {
             $dataform = $request->validated();
-            Disciplina::query()->create($dataform);
-            return response(null,204);
+            $disciplina = Disciplina::query()->create($dataform);
+            return response($disciplina,201);
         }catch (\Exception $e){
             return response($e->getMessage(),400);
         }
@@ -41,24 +41,24 @@ class DisciplinasController extends Controller
      * @param  \App\Models\Disciplina  $disciplinas
      * @return \Illuminate\Http\Response
      */
-    public function show(Disciplina $disciplinas)
+    public function show(Disciplina $disciplina)
     {
-        return response($disciplinas);
+        return response($disciplina);
     }
 
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Disciplina  $disciplinas
+     * @param DisciplinaRequest $request
+     * @param Disciplina $disciplina
      * @return \Illuminate\Http\Response
      */
-    public function update(DisciplinaRequest $request, Disciplina $disciplinas)
+    public function update(DisciplinaRequest $request, Disciplina $disciplina)
     {
         try {
-            $disciplinas->update($request->all());
-            return response();
+            $disciplina->update($request->all());
+            return response($disciplina,201);
         }catch (\Exception $e){
             return response($e->getMessage(),400);
         }
@@ -74,7 +74,7 @@ class DisciplinasController extends Controller
     {
         try {
             $disciplinas->delete();
-            return response();
+            return response(null,204);
         }catch (\Exception $e){
             return response($e->getMessage(),400);
         }

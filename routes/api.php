@@ -23,8 +23,8 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
 
 Route::middleware('auth:api')->group( function () {
     Route::apiResource('alunos',\App\Http\Controllers\AlunoController::class);
-    Route::get('alunos/{user}/turmas/{turma}/attach',[\App\Http\Controllers\AlunoTurmaController::class,'attach'])->name('alunos.attach');//alunos.matricular
-    Route::get('alunos/{user}/turmas/{turma}/detach',[\App\Http\Controllers\AlunoTurmaController::class,'detach'])->name('alunos.attach');//alunos.desmatricular
+    Route::get('alunos/{aluno}/turmas/{turma}/attach',[\App\Http\Controllers\AlunoTurmaController::class,'attach'])->name('alunos.attach');//alunos.matricular
+    Route::get('alunos/{aluno}/turmas/{turma}/detach',[\App\Http\Controllers\AlunoTurmaController::class,'detach'])->name('alunos.detach');//alunos.desmatricular
 
     Route::apiResource('disciplinas',\App\Http\Controllers\DisciplinasController::class);
     Route::apiResource('disciplinas.turmas',\App\Http\Controllers\DisciplinaTurmaController::class)->shallow();

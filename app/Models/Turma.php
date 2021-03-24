@@ -9,7 +9,7 @@ class Turma extends Model
 {
     use HasFactory;
 
-    protected $fillable=['nome'];
+    protected $fillable=['nome','user_id','disciplina_id'];
 
 
     public function professor()

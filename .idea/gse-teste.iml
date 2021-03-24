@@ -116,6 +116,18 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/tymon/jwt-auth" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/lcobucci/jwt" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/namshi/jose" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/mnapoli/silly" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/mnapoli/front-yaml" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/mpociot/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-di/invoker" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/erusev/parsedown" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/windwalker/renderer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/windwalker/structure" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/shalvah/clara" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/knuckleswtf/scribe" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/knuckleswtf/pastel" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/var-exporter" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/yaml" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
