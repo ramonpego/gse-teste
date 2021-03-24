@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TurmaRequest;
 use App\Models\Turma;
-use Illuminate\Http\Request;
 
 class TurmaController extends Controller
 {
@@ -14,18 +14,24 @@ class TurmaController extends Controller
      */
     public function index()
     {
-        //
+        return response(Turma::all());
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param TurmaRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TurmaRequest $request)
     {
-        //
+        try {
+            $dataform = $request->validated();
+            $turma = Turma::query()->create($dataform);
+            return response($turma);
+        }catch (\Exception $e){
+            return response($e->getMessage(),400);
+        }
     }
 
     /**
@@ -36,20 +42,26 @@ class TurmaController extends Controller
      */
     public function show(Turma $turma)
     {
-        //
+        return response($turma);
     }
 
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Turma  $turma
+     * @param TurmaRequest $request
+     * @param \App\Models\Turma $turma
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Turma $turma)
+    public function update(TurmaRequest $request, Turma $turma)
     {
-        //
+        try {
+            $dataform = $request->validated();
+            $turma->update($dataform);
+            return response($turma);
+        }catch (\Exception $e){
+            return response($e->getMessage(),400);
+        }
     }
 
     /**
@@ -60,6 +72,11 @@ class TurmaController extends Controller
      */
     public function destroy(Turma $turma)
     {
-        //
+        try {
+            $turma->delete();
+            return response(null,204);
+        }catch (\Exception $e){
+            return response($e->getMessage(),400);
+        }
     }
 }

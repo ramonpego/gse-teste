@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\DisciplinaRequest;
 use App\Models\Disciplina;
-use Illuminate\Http\Request;
 
 class DisciplinasController extends Controller
 {
@@ -28,8 +27,9 @@ class DisciplinasController extends Controller
     public function store(DisciplinaRequest $request)
     {
         try {
-            Disciplina::query()->create($request->all());
-            return response();
+            $dataform = $request->validated();
+            Disciplina::query()->create($dataform);
+            return response(null,204);
         }catch (\Exception $e){
             return response($e->getMessage(),400);
         }
@@ -43,7 +43,7 @@ class DisciplinasController extends Controller
      */
     public function show(Disciplina $disciplinas)
     {
-
+        return response($disciplinas);
     }
 
 

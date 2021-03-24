@@ -11,10 +11,20 @@ class Turma extends Model
 
     protected $fillable=['nome'];
 
-    public function alunos()
+
+    public function professor()
     {
-        return $this->hasMany(Aluno::class);
+        return $this->belongsTo(User::class,'user_id','id');
     }
 
+    public function disciplina()
+    {
+        return $this->belongsTo(Disciplina::class);
+    }
+
+    public function alunos()
+    {
+        return $this->belongsToMany(Aluno::class);
+    }
 
 }

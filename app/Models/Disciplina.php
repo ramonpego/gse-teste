@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,14 +11,15 @@ class Disciplina extends Model
     use HasFactory;
     protected $fillable = ['nome','descricao'];
 
-    public function professor()
+
+    public function professores()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class,'turmas')->withPivot('nome');
     }
 
-    public function disciplinas()
+    public function turmas()
     {
-        return $this->hasMany(Disciplina::class);
+        return $this->hasMany(Turma::class);
     }
 
 

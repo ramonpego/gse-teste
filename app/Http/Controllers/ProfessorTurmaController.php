@@ -2,34 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AlunoStoreRequest;
-use App\Http\Requests\AlunoUpdateRequest;
-use App\Models\Aluno;
+use App\Http\Requests\TurmaRequest;
+use App\Models\Turma;
+use App\Models\User;
 
-class AlunoController extends Controller
+class ProfessorTurmaController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $user)
     {
-        return response(Aluno::all());
+        return response($user->turmas());
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param TurmaRequest $request
+     * @param \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
-    public function store(AlunoStoreRequest $request)
+    public function store(TurmaRequest $request, User $user)
     {
         try {
             $dataform = $request->validated();
-            $aluno = Aluno::query()->create($dataform);
-            return response($aluno);
+            $turma = $user->turmas()->create($dataform);
+            return response($turma,201);
         }catch (\Exception $e){
             return response($e->getMessage(),400);
         }
@@ -38,27 +40,28 @@ class AlunoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Aluno  $aluno
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Turma  $turma
      * @return \Illuminate\Http\Response
      */
-    public function show(Aluno $aluno)
+    public function show( Turma $turma)
     {
-        return response($aluno);
+        return response($turma);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Aluno  $aluno
+     * @param TurmaRequest $request
+     * @param \App\Models\Turma $turma
      * @return \Illuminate\Http\Response
      */
-    public function update(AlunoUpdateRequest $request, Aluno $aluno)
+    public function update(TurmaRequest $request,  Turma $turma)
     {
         try {
             $dataform = $request->validated();
-            $aluno->update($dataform);
-            return response($aluno);
+            $turma->update($dataform);
+            return response($turma);
         }catch (\Exception $e){
             return response($e->getMessage(),400);
         }
@@ -67,13 +70,14 @@ class AlunoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Aluno  $aluno
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Turma  $turma
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Aluno $aluno)
+    public function destroy(Turma $turma)
     {
         try {
-            $aluno->delete();
+            $turma->delete();
             return response(null,204);
         }catch (\Exception $e){
             return response($e->getMessage(),400);

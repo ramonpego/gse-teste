@@ -5,7 +5,7 @@ namespace Database\Factories;
 use App\Models\Disciplina;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class DisciplinasFactory extends Factory
+class DisciplinaFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
@@ -22,7 +22,8 @@ class DisciplinasFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nome'=>$this->faker->name,
+            'descricao'=>$this->faker->text(220)
         ];
     }
 }

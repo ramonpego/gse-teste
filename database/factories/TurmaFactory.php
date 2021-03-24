@@ -22,7 +22,7 @@ class TurmaFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nome'=>$this->faker->monthName
         ];
     }
 }

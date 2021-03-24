@@ -10,4 +10,9 @@ class Aluno extends Model
     use HasFactory;
     protected $fillable = ['nome','email','data_nascimento'];
 
+    public function turmas()
+    {
+        return $this->belongsToMany(Turma::class);
+    }
+
 }

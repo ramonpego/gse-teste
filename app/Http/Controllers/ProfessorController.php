@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AlunoStoreRequest;
-use App\Http\Requests\AlunoUpdateRequest;
-use App\Models\Aluno;
+use App\Http\Requests\ProfessorStoreRequest;
+use App\Http\Requests\ProfessorUpdateRequest;
+use App\Models\User;
 
-class AlunoController extends Controller
+class ProfessorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class AlunoController extends Controller
      */
     public function index()
     {
-        return response(Aluno::all());
+        return response(User::all());
     }
 
     /**
@@ -24,12 +24,12 @@ class AlunoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AlunoStoreRequest $request)
+    public function store(ProfessorStoreRequest $request)
     {
         try {
             $dataform = $request->validated();
-            $aluno = Aluno::query()->create($dataform);
-            return response($aluno);
+            $professor = User::query()->create($dataform);
+            return response($professor);
         }catch (\Exception $e){
             return response($e->getMessage(),400);
         }
@@ -38,27 +38,27 @@ class AlunoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Aluno  $aluno
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Aluno $aluno)
+    public function show(User $user)
     {
-        return response($aluno);
+        return response($user);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Aluno  $aluno
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(AlunoUpdateRequest $request, Aluno $aluno)
+    public function update(ProfessorUpdateRequest $request, User $user)
     {
         try {
             $dataform = $request->validated();
-            $aluno->update($dataform);
-            return response($aluno);
+            $user->update($dataform);
+            return response($user);
         }catch (\Exception $e){
             return response($e->getMessage(),400);
         }
@@ -67,13 +67,13 @@ class AlunoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Aluno  $aluno
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Aluno $aluno)
+    public function destroy(User $user)
     {
         try {
-            $aluno->delete();
+            $user->delete();
             return response(null,204);
         }catch (\Exception $e){
             return response($e->getMessage(),400);
