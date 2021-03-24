@@ -22,8 +22,8 @@ class DisciplinaFactory extends Factory
     public function definition()
     {
         return [
-            'nome'=>$this->faker->name,
-            'descricao'=>$this->faker->text(220)
+            'nome' => $this->faker->name,
+            'descricao' => $this->faker->text(220)
         ];
     }
 }

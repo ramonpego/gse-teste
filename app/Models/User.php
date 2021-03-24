@@ -46,9 +46,9 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Turma::class);
     }
 
-    public function disciplinas ()
+    public function disciplinas()
     {
-        return $this->belongsToMany(Disciplina::class,'turmas')->withPivot('nome');
+        return $this->belongsToMany(Disciplina::class, 'turmas')->withPivot('nome');
     }
 
 
@@ -59,7 +59,7 @@ class User extends Authenticatable implements JWTSubject
     public function getAlunosAttribute()
     {
         return $this->turmas()
-            ->with('alunos' )
+            ->with('alunos')
             ->get()
             ->pluck('alunos')->flatten();
 

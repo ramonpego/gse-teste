@@ -22,9 +22,9 @@ class AlunoFactory extends Factory
     public function definition()
     {
         return [
-            'nome'=>$this->faker->name,
-            'email'=>$this->faker->unique()->email,
-            'data_nascimento'=>$this->faker->date()
+            'nome' => $this->faker->name,
+            'email' => $this->faker->unique()->email,
+            'data_nascimento' => $this->faker->date()
         ];
     }
 }

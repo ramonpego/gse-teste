@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Aluno extends Model
 {
     use HasFactory;
-    protected $fillable = ['nome','email','data_nascimento'];
+
+    protected $fillable = ['nome', 'email', 'data_nascimento'];
 
     public function turmas()
     {

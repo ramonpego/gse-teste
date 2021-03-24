@@ -25,9 +25,9 @@ class AlunoUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome'=>['required','string','max:254'],
-            'email'=>['required',Rule::unique('alunos')->ignore($this->aluno->id),'string','max:254'],
-            'data_nascimento'=>['required','date','before:today'],
+            'nome' => ['required', 'string', 'max:254'],
+            'email' => ['required', Rule::unique('alunos')->ignore($this->aluno->id), 'string', 'max:254'],
+            'data_nascimento' => ['required', 'date', 'before:today'],
         ];
     }
 }

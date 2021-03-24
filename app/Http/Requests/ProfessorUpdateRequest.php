@@ -25,9 +25,9 @@ class ProfessorUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>['required','string','max:254'],
-            'password'=>['required','confirmed','string','min:6'],
-            'email'=>['required',Rule::unique('users')->ignore($this->user->id),'email:rfc,dns','max:254']
+            'name' => ['required', 'string', 'max:254'],
+            'password' => ['required', 'confirmed', 'string', 'min:6'],
+            'email' => ['required', Rule::unique('users')->ignore($this->user->id), 'email:rfc,dns', 'max:254']
         ];
     }
 }

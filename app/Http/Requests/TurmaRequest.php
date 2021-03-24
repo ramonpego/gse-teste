@@ -24,9 +24,9 @@ class TurmaRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome'=>['required','string','max:254'],
-            'user_id'=>['nullable','exists:users,id'],
-            'disciplina_id'=>['nullable','exists:disciplinas,id'],
+            'nome' => ['required', 'string', 'max:254'],
+            'user_id' => ['nullable', 'exists:users,id'],
+            'disciplina_id' => ['nullable', 'exists:disciplinas,id'],
         ];
     }
 }

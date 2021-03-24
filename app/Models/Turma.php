@@ -9,12 +9,12 @@ class Turma extends Model
 {
     use HasFactory;
 
-    protected $fillable=['nome','user_id','disciplina_id'];
+    protected $fillable = ['nome', 'user_id', 'disciplina_id'];
 
 
     public function professor()
     {
-        return $this->belongsTo(User::class,'user_id','id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function disciplina()

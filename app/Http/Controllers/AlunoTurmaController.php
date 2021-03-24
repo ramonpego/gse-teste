@@ -16,13 +16,13 @@ class AlunoTurmaController extends Controller
      * @param Turma $turma
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
-    public function attach(Aluno $aluno,Turma $turma) // Nao estava fazendo o model biding do segundo parametro nao sei por que
+    public function attach(Aluno $aluno, Turma $turma) // Nao estava fazendo o model biding do segundo parametro nao sei por que
     {
         try {
             $aluno->turmas()->attach($turma);
-            return response($aluno->turmas,201);
-        }catch (\Exception $e){
-            return response($e->getMessage(),400);
+            return response($aluno->turmas, 201);
+        } catch (\Exception $e) {
+            return response($e->getMessage(), 400);
         }
     }
 
@@ -31,9 +31,9 @@ class AlunoTurmaController extends Controller
     {
         try {
             $aluno->turmas()->detach($turma);
-            return response($aluno,201);
-        }catch (\Exception $e){
-            return response($e->getMessage(),400);
+            return response($aluno, 201);
+        } catch (\Exception $e) {
+            return response($e->getMessage(), 400);
         }
     }
 

@@ -24,8 +24,8 @@ class DisciplinaRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome'=>['required','string','max:254'],
-            'descricao'=>['nullable','string','min:5']
+            'nome' => ['required', 'string', 'max:254'],
+            'descricao' => ['nullable', 'string', 'min:5']
         ];
     }
 }

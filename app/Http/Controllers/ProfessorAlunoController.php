@@ -9,7 +9,7 @@ class ProfessorAlunoController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param  \App\Models\User  $user
+     * @param \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function index(User $user)
